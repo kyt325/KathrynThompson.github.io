@@ -1,0 +1,79 @@
+---
+layout: null
+title: Blog | Kathryn Thompson
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Notes on projects, coursework, software, data, and security by Kathryn Thompson.">
+  <title>Blog | Kathryn Thompson</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <aside class="sidebar" aria-label="Site navigation">
+    <a class="identity" href="{{ '/' | relative_url }}" aria-label="Kathryn Thompson, home">
+      <span class="monogram" aria-hidden="true">KT</span>
+      <span class="identity-name">Kathryn Thompson</span>
+      <span class="identity-role">Computer scientist &amp; engineer</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}#about">About</a>
+      <a href="{{ '/' | relative_url }}#experience">Experience</a>
+      <a href="{{ '/projects.html' | relative_url }}">Projects &amp; coursework</a>
+      <a href="{{ '/blog.html' | relative_url }}" aria-current="page">Blog</a>
+      <a href="{{ '/' | relative_url }}#background">Background</a>
+      <a href="{{ '/' | relative_url }}#skills">Skills</a>
+      <a href="{{ '/' | relative_url }}#contact">Contact</a>
+    </nav>
+    <div class="sidebar-note"><span class="status-dot" aria-hidden="true"></span><span>Champaign, Illinois</span></div>
+  </aside>
+
+  <main id="main-content">
+    <header class="page-hero section-shell blog-hero">
+      <p class="eyebrow">Notes, ideas, and works in progress</p>
+      <h1>Thinking<br><span>out loud.</span></h1>
+      <p class="hero-copy">A place for project notes, lessons from coursework, technical explainers, and things I’m curious about.</p>
+    </header>
+
+    <section class="page-section section-shell blog-list-section" aria-labelledby="blog-list-heading">
+      <div class="section-heading page-section-heading">
+        <p class="eyebrow">Journal</p>
+        <h2 id="blog-list-heading">Recent writing</h2>
+      </div>
+      {% if site.posts.size > 0 %}
+        <div class="post-list">
+          {% for post in site.posts %}
+          <article class="post-card">
+            <div class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>{% if post.categories.size > 0 %}<span>{{ post.categories | join: " · " }}</span>{% endif %}</div>
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
+            <a class="card-link" href="{{ post.url | relative_url }}">Read article <span aria-hidden="true">→</span></a>
+          </article>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="empty-blog">
+          <span class="empty-blog-mark" aria-hidden="true">✳</span>
+          <div>
+            <h3>Your first post goes here.</h3>
+            <p>Posts are built with GitHub Pages and Jekyll. Copy the starter template, add a dated Markdown file to the <strong>_posts</strong> folder, and publish it with your next site update.</p>
+            <a class="text-link" href="{{ '/POST_TEMPLATE.md' | relative_url }}">View the post template <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      {% endif %}
+      <p class="blog-howto">To publish: create <strong>_posts/YYYY-MM-DD-your-title.md</strong>, set its title and date, write in Markdown, then commit and push. The post will appear here automatically.</p>
+    </section>
+
+    <section class="contact-section" aria-labelledby="blog-contact-title">
+      <div class="section-shell contact-inner">
+        <div><p class="eyebrow">Enjoyed something here?</p><h2 id="blog-contact-title">I’d love to hear from you.</h2><p>Questions, corrections, and thoughtful conversations are welcome.</p></div>
+        <a class="button button-light" href="{{ '/' | relative_url }}#contact">Get in touch <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <footer class="site-footer section-shell"><span>© 2026 Kathryn Thompson</span><a href="{{ '/' | relative_url }}">Back to home ↑</a></footer>
+  </main>
+</body>
+</html>

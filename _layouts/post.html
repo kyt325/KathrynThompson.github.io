@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.excerpt | default: page.title | strip_html | escape }}">
+  <title>{{ page.title | escape }} | Kathryn Thompson</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <aside class="sidebar" aria-label="Site navigation">
+    <a class="identity" href="{{ '/' | relative_url }}" aria-label="Kathryn Thompson, home">
+      <span class="monogram" aria-hidden="true">KT</span>
+      <span class="identity-name">Kathryn Thompson</span>
+      <span class="identity-role">Computer scientist &amp; engineer</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ '/' | relative_url }}#about">About</a>
+      <a href="{{ '/' | relative_url }}#experience">Experience</a>
+      <a href="{{ '/projects.html' | relative_url }}">Projects &amp; coursework</a>
+      <a href="{{ '/blog.html' | relative_url }}" aria-current="page">Blog</a>
+      <a href="{{ '/' | relative_url }}#background">Background</a>
+      <a href="{{ '/' | relative_url }}#skills">Skills</a>
+      <a href="{{ '/' | relative_url }}#contact">Contact</a>
+    </nav>
+    <div class="sidebar-note"><span class="status-dot" aria-hidden="true"></span><span>Champaign, Illinois</span></div>
+  </aside>
+
+  <main id="main-content">
+    <article class="article-shell">
+      <a class="article-back" href="{{ '/blog.html' | relative_url }}">← All writing</a>
+      <header class="article-header">
+        <p class="eyebrow">{{ page.categories | join: " / " | default: "From the blog" }}</p>
+        <h1>{{ page.title | escape }}</h1>
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      </header>
+      <div class="article-content">{{ content }}</div>
+      <div class="article-footer"><a class="text-link" href="{{ '/blog.html' | relative_url }}">← Back to all writing</a></div>
+    </article>
+    <footer class="site-footer section-shell"><span>© 2026 Kathryn Thompson</span><a href="{{ '/' | relative_url }}">Back to home ↑</a></footer>
+  </main>
+</body>
+</html>
